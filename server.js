@@ -27,3 +27,7 @@ app.get('/api/notes', (req, res) =>
     res.json(JSON.parse(data));
   })
 );
+
+app.post('/api/notes', (req, res) => {
+    const { title, text } = req.body;
+});
