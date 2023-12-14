@@ -19,18 +19,20 @@ This application, called MemoPad, is designed for writing, saving, and managing 
 
 To install the necessary dependencies, run the following command:
 
-    ```bash
-    npm install
-    ```
+```bash
+npm install
+```
+
 This will install Express.js and any other dependencies required for the project.
 
 ## Usage
 
 After installation, run the server using:
 
-    ```bash
-    node server.js
-    ```
+```bash
+node server.js
+```
+
 Then, access the application in a web browser at `localhost:3000`.
 
 ## Features
