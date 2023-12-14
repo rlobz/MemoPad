@@ -30,4 +30,28 @@ app.get('/api/notes', (req, res) =>
 
 app.post('/api/notes', (req, res) => {
     const { title, text } = req.body;
+    if (title && text) {
+        const newNote = {
+          title,
+          text,
+          id: Math.floor(Math.random() * 1000000),
+        };
+    
+        fs.readFile('./db/db.json', 'utf8', (err, data) => {
+          if (err) {
+            console.error(err);
+            return res.status(500).json(err);
+          }
+          const existingNotes = JSON.parse(data);
+          existingNotes.push(newNote);
+    
+          fs.writeFile('./db/db.json', JSON.stringify(existingNotes, null, 4), (writeErr) =>
+            writeErr
+              ? res.status(500).json(writeErr)
+              : res.json(`Note added successfully`)
+          );
+        });
+      } else {
+        res.status(400).json('Note title and text cannot be blank');
+      }
 });
