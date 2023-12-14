@@ -34,7 +34,7 @@ app.post('/api/notes', (req, res) => {
         const newNote = {
           title,
           text,
-          id: Math.floor(Math.random() * 1000000),
+          id: uuidv4(),
         };
     
         fs.readFile('./db/db.json', 'utf8', (err, data) => {
