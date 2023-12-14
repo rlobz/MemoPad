@@ -55,3 +55,7 @@ app.post('/api/notes', (req, res) => {
         res.status(400).json('Note title and text cannot be blank');
       }
 });
+
+app.listen(PORT, () =>
+  console.log(`Server running on http://localhost:${PORT}`)
+);
